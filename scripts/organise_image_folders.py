@@ -1,5 +1,5 @@
 """
-copy all images into one folder because images are saved in multiple folders right now
+copy all images into one folder ('../../dataset/images/all') because images are saved in multiple folders right now
 """
 
 import os
@@ -27,6 +27,9 @@ for folder in folder_names:
 
         # copy images from old path tp new path
         shutil.copyfile(old_img_path, output_img_path)
+
+    print('image folder copy finished: ', folder)
+print('all images has been copied into: ', output_dir)
 
 
 

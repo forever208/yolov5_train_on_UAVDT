@@ -2,8 +2,9 @@
 # Train command: python train.py --data coco128.yaml
 # Default dataset location is next to YOLOv5:
 #   /parent
-#     /datasets/coco128
-#     /yolov5
+#     /dataset/images
+#     /dataset/labels
+#     /yolov5_train_on_UAVDT
 
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]

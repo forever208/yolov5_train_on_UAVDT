@@ -31,6 +31,8 @@ random.shuffle(labels_filename)    # shuffle the dataset
 
 tra_filename = labels_filename[:35000]
 val_filename = labels_filename[35000:]
+print('number of training images is: ', len(tra_filename))
+print('number of validation images is: ', len(val_filename))
 
 # training dataset
 for tra_file in tra_filename:    # 'M1306_000215.txt'
@@ -42,6 +44,9 @@ for tra_file in tra_filename:    # 'M1306_000215.txt'
     old_tra_label = labels_dir + '/' + prefix + '.txt'
     new_tra_label = tra_labels_dir + '/' + prefix + '.txt'
     shutil.copyfile(old_tra_label, new_tra_label)
+print('training images have been saved in folder: ', tra_img_dir)
+print('training labels have been saved in folder: ', tra_labels_dir)
+
 
 # validation dataset
 for val_file in val_filename:    # 'M1306_000215.txt'
@@ -53,6 +58,8 @@ for val_file in val_filename:    # 'M1306_000215.txt'
     old_val_label = labels_dir + '/' + prefix + '.txt'
     new_val_label = val_labels_dir + '/' + prefix + '.txt'
     shutil.copyfile(old_val_label, new_val_label)
+print('validation images have been saved in folder: ', val_img_dir)
+print('validation labels have been saved in folder: ', val_labels_dir)
 
 # remove old dataset folders
 shutil.rmtree(images_dir)

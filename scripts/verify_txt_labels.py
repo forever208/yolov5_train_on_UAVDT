@@ -11,12 +11,14 @@ images_dir = '../../dataset/images/all'
 labels_dir = '../../dataset/labels/all'
 ignore_dir = '../../UAV-benchmark-MOTD_v1.0/GT'
 
+SHOW_IMGS = 50    # number of images to visualise
+SHOW_IGNORE_AREA = False    # whether to show the ignore area
+IMG_W = 1024
+IMG_H = 540
+
 img_name_ls = os.listdir(images_dir)
 random.shuffle(img_name_ls)
 txt_name_ls = os.listdir(labels_dir)
-SHOW_IMGS = 100    # number of images to visualise
-SHOW_IGNORE_AREA = False    # whether to show the ignore area
-
 
 for img in img_name_ls:    # M0202_000196.jpg
     img_prefix = img[:12]    # M0202_000196
@@ -40,10 +42,10 @@ for img in img_name_ls:    # M0202_000196.jpg
                     x2 = float(xc) + float(w)/2
                     y1 = float(yc) - float(h)/2
                     y2 = float(yc) + float(h)/2
-                    x1 = int(x1)
-                    x2 = int(x2)
-                    y1 = int(y1)
-                    y2 = int(y2)
+                    x1 = int(x1 * IMG_W)
+                    x2 = int(x2 * IMG_W)
+                    y1 = int(y1 * IMG_H)
+                    y2 = int(y2 * IMG_H)
                     img = cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), thickness=2)
 
                 if SHOW_IGNORE_AREA:
