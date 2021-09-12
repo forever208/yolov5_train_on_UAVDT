@@ -87,7 +87,7 @@ python organise_txt_labels.py
 
 the label format is shown as follows, each line of txt is a ground truth bounfing box with format `class_index, x_center, y_center, width, height`
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/label%20format.png" width='25%' height='25%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/label%20format.png" width='40%' height='40%'/>
 </p>
 
 
@@ -135,7 +135,7 @@ Before training, you can modify some configurations according to you demand.
 contains the image and label path for training, validation and testing. (we have well setted it up)
 
 
-`yolov5_train_on_UA-DETRAC/model/yolov5m.yaml` 
+`yolov5_train_on_UAVDT/model/yolov5m.yaml` 
 contains the layers configuration and number of classes. (change the number of classes to 1)
 
 
