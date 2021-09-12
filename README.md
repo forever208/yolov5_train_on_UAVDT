@@ -73,7 +73,7 @@ python organise_image_folders.py
 
 you should now get the following folder structure where `dataset/images/all` contains all 40k images
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/image%20folder.png" width='25%' height='25%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/image%20folder.png" width='30%' height='30%'/>
 </p>
 
 
@@ -87,7 +87,7 @@ python organise_txt_labels.py
 
 the label format is shown as follows, each line of txt is a ground truth bounfing box with format `class_index, x_center, y_center, width, height`
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/label%20format.png" width='40%' height='40%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/label%20format.png" width='50%' height='50%'/>
 </p>
 
 
@@ -106,7 +106,7 @@ You should now get the following folder structure: `/dataset`, it is parallel wi
 (**this structure meets the demand of YOLOv5 custom training**)
 
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='25%' height='25%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_2.png" width='30%' height='30%'/>
 </p>
 
 
