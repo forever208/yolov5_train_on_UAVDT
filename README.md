@@ -34,50 +34,44 @@ cd yolov5_train_on_UA-DETRAC
 pip install -qr requirements.txt
 ```
 
-## 【3】Download dataset
+## 【3】Download dataset - UAVDT
 
 Download and unzip the dataset by command line is recommended:
 ```
 cd ..
-wget https://detrac-db.rit.albany.edu/Data/DETRAC-train-data.zip
-wget https://detrac-db.rit.albany.edu/Data/DETRAC-test-data.zip
-unzip DETRAC-train-data.zip
-unzip DETRAC-test-data.zip
-rm -rf DETRAC-test-data.zip
-rm -rf DETRAC-train-data.zip
+wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1m8KA6oPIRK_Iwt9TYFquC87vBc_8wRVc' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1m8KA6oPIRK_Iwt9TYFquC87vBc_8wRVc" -O UAVDTM.zip && rm -rf /tmp/cookies.txt
+
+unzip UAVDTM.zip
+rm -rf UAVDTM.zip
 ```
 
-Then download and unzip the annotation files (I saved the file in my GoogleDrive), download by command:
+Then download and annotation file by command:
 ```
-wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1f-4NA2sc6Tqo25Ilx-b5NaFGLjhf2AbK' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1f-4NA2sc6Tqo25Ilx-b5NaFGLjhf2AbK" -O DETRAC-Train-Annotations-XML.zip && rm -rf /tmp/cookies.txt
+wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=19498uJd7T9w4quwnQEy62nibt3uyT9pq' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=19498uJd7T9w4quwnQEy62nibt3uyT9pq" -O UAV-benchmark-MOTD_v1.0.zip && rm -rf /tmp/cookies.txt
 
-wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1Q0E-Dk3vL55m9ODOENeq2_ojiZwWMbdo' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1Q0E-Dk3vL55m9ODOENeq2_ojiZwWMbdo" -O DETRAC-Test-Annotations-XML.zip && rm -rf /tmp/cookies.txt
-
-unzip DETRAC-Train-Annotations-XML.zip
-unzip DETRAC-Test-Annotations-XML.zip
-rm -rf DETRAC-Train-Annotations-XML.zip
-rm -rf DETRAC-Test-Annotations-XML.zip
+unzip UAV-benchmark-MOTD_v1.0.zip
+rm -rf UAV-benchmark-MOTD_v1.0.zip
 ```
 
 ## 【3】Dataset preprocessing
-We then need to do 3 things before training YOLOv5 using UA-DERTAC dataset:
-- transform the annotation format from xml to txt (the label format of YOLOv5 is txt).
-- organize the dataset folder structure to meet the requirment of YOLOv5 default setting.
-- re-organize the training set and validation set because the original split of DETRAC is not good (refer to [this blog](https://zhuanlan.zhihu.com/p/373096271) for more details)
+We then need to do 3 things before training YOLOv5 using UAVDT dataset:
+- copy all images into one folder since the original images are saved in multiple folders.
+- transform the label format and also save all txt label files into one folder .
+- split dataset into training and validation set
 
 
 
-### Transform xml to txt
-Using python script `yolov5_train_on_UA-DETRAC/scripts/bigxml_txt.py` to do the transformation. 
+### Copy all images into one folder
+Using python script `yolov5_train_on_UAVDT/scripts/organise_image_folders.py` to do the job. 
 
 ```
-cd yolov5_train_on_UA-DETRAC/scripts/ 
-python bigxml_txt.py
+cd yolov5_train_on_UAVDT/scripts/ 
+python organise_image_folders.py
 ```
 
-you should now get the following folder structure where `train_detrac_txt` and `test_detrac_txt` are the txt labels.
+you should now get the following folder structure where `dataset/images/all` contains all 40k images
 <p align="left">
-  <img src="https://github.com/forever208/yolov5_train_on_UA-DETRAC/blob/master/data/images/folder_structure_1.png" width='25%' height='25%'/>
+  <img src="https://drive.google.com/drive/folders/1qHG9rM2UMU0BMPqrCaDfv6KHCBmMklmd?usp=sharing" width='25%' height='25%'/>
 </p>
 
 
