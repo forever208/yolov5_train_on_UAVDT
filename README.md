@@ -1,8 +1,8 @@
 ## 【0】Introduction
 
-This repo is based on [YOLOv5 (5.0)](https://github.com/ultralytics/yolov5/releases/tag/v5.0) and aims at training the network with dataset [UA-DETRAC](https://detrac-db.rit.albany.edu/).
+This repo is based on [YOLOv5 (5.0)](https://github.com/ultralytics/yolov5/releases/tag/v5.0) and aims at training the network with dataset [UAVDT](https://sites.google.com/view/grli-uavdt/%E9%A6%96%E9%A1%B5).
 
-Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UA-DETRAC.ipynb](https://colab.research.google.com/drive/13zZ9W4_kIePyCS_TzJim0lytHaC850G3?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
+Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UAVDT.ipynb](https://colab.research.google.com/drive/1Gq3HCV6AlEbAkQ-S3_l4-PRHpnbyfisF?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
 
 
 
@@ -71,7 +71,7 @@ python organise_image_folders.py
 
 you should now get the following folder structure where `dataset/images/all` contains all 40k images
 <p align="left">
-  <img src="https://drive.google.com/file/d/1qDxvL7-5jsX1JkxNdpFiElBpjMQLwnP5/view?usp=sharing" width='25%' height='25%'/>
+  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/image%20folder.png" width='25%' height='25%'/>
 </p>
 
 
@@ -82,6 +82,12 @@ Running the below script to match each image with a txt label file, move txts in
 ```
 python organise_txt_labels.py
 ```
+
+the label format is shown as follows, each line of txt is a ground truth bounfing box with format `class_index, x_center, y_center, width, height`
+<p align="left">
+  <img src="https://github.com/forever208/yolov5_train_on_UAVDT/blob/master/data/images/label%20format.png" width='25%' height='25%'/>
+</p>
+
 
 
 
