@@ -71,7 +71,7 @@ python organise_image_folders.py
 
 you should now get the following folder structure where `dataset/images/all` contains all 40k images
 <p align="left">
-  <img src="https://drive.google.com/drive/folders/1qHG9rM2UMU0BMPqrCaDfv6KHCBmMklmd?usp=sharing" width='25%' height='25%'/>
+  <img src="https://drive.google.com/file/d/1qDxvL7-5jsX1JkxNdpFiElBpjMQLwnP5/view?usp=sharing" width='25%' height='25%'/>
 </p>
 
 
