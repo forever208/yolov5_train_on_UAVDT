@@ -56,7 +56,7 @@ rm -rf UAV-benchmark-MOTD_v1.0.zip
 ## 【3】Dataset preprocessing
 We then need to do 3 things before training YOLOv5 using UAVDT dataset:
 - copy all images into one folder since the original images are saved in multiple folders.
-- transform the label format and also save all txt label files into one folder .
+- transform the label format and also save all txt label files into one folder.
 - split dataset into training and validation set
 
 
@@ -76,19 +76,24 @@ you should now get the following folder structure where `dataset/images/all` con
 
 
 
-### Organize the dataset folder structure
+### Transform the label format
 
-run the following script to only pick up 1/10 images and rename images, move them into `/dataset/images/` 
+Running the below script to match each image with a txt label file, move txts into `/dataset/labels/all` 
 ```
-python rename_image.py
-```
-
-only pick up 1/10 txts and rename them, move them into `/dataset/labels/` 
-```
-python rename_txt.py
+python organise_txt_labels.py
 ```
 
-You should now get the following folder structure: `/dataset`, it is parallel with `yolov5_train_on_UA-DETRAC`.  
+
+
+### Split dataset into training and validation
+
+I use 35k images as the training dataset, 5k images as the validation set
+
+```
+python split_train_val.py
+```
+
+You should now get the following folder structure: `/dataset`, it is parallel with `yolov5_train_on_UAVDT`.  
 
 (**this structure meets the demand of YOLOv5 custom training**)
 
@@ -97,27 +102,20 @@ You should now get the following folder structure: `/dataset`, it is parallel wi
 </p>
 
 
-### Re-organize the training and validation set
-
-For simplicity, I merely add the validation set into training set for the best training results.
-
-Of course, you can train and val set togerther and do a random split (80% as training, 20% as validation).
+To remove the redundant folders:
 
 ```
-# remove the redundant folder  
 cd ../..
-rm -rf DETRAC-Test-Annotations-XML/
-rm -rf DETRAC-Train-Annotations-XML/
-rm -rf Insight-MVT_Annotation_Test/
-rm -rf Insight-MVT_Annotation_Train/
-rm -rf test_detrac_txt/
-rm -rf train_detrac_txt/
+rm -rf UAV-benchmark-M
+rm -rf UAV-benchmark-MOTD_v1.0
+```
 
-# add validation set into training set (because the distribution of DETRAC is biased in training set) 
+For best training results, you can also use all 40k images as the training dataset, run the command:
+
+```
 cp -i -r ./dataset/images/val/. ./dataset/images/train/
 cp -i -r ./dataset/labels/val/. ./dataset/labels/train/ 
 ```
-
 
 
 ## 【4】Train
@@ -125,27 +123,26 @@ cp -i -r ./dataset/labels/val/. ./dataset/labels/train/
 ### Configuration setting
 Before training, you can modify some configurations according to you demand.
 
-`yolov5_train_on_UA-DETRAC/data/UA_DETRAC.yaml` 
-
+`yolov5_train_on_UAVDT/data/UAVDT.yaml` 
 contains the image and label path for training, validation and testing. (we have well setted it up)
 
-`yolov5_train_on_UA-DETRAC/model/yolov5m.yaml` 
 
+`yolov5_train_on_UA-DETRAC/model/yolov5m.yaml` 
 contains the layers configuration and number of classes. (change the number of classes to 1)
 
 
 ### Train
-Now, you can train the network with UA-DETRAC dataset.
+Now, you can train the network with UAVDT dataset.
 
 Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640` in a single GPU
 
 ```
-python train.py --img 640 --batch 16 --epochs 5 --data UA_DETRAC.yaml --weights yolov5m.pt 
+python train.py --img 640 --batch 16 --epochs 5 --data UAVDT.yaml --weights yolov5m.pt 
 ```
 
 For multi-GPUs training, let's say 4 GPUs, you can do:
 ```
-python -m torch.distributed.launch --nproc_per_node 4 train.py --img 640 --batch 64 --epochs 10 --data UA_DETRAC.yaml --weights yolov5m.pt --device 0,1,2,3
+python -m torch.distributed.launch --nproc_per_node 4 train.py --img 640 --batch 64 --epochs 10 --data UAVDT.yaml --weights yolov5m.pt --device 0,1,2,3
 ```
 
 
