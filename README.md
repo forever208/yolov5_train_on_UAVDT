@@ -25,14 +25,15 @@ conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10
 
 Clone the code
 ```
-git clone https://github.com/forever208/yolov5_train_on_UA-DETRAC.git
+git clone https://github.com/forever208/yolov5_train_on_UAVDT.git
 ```
 
 Install all the python dependencies using pip:
 ```
-cd yolov5_train_on_UA-DETRAC
+cd yolov5_train_on_UAVDT
 pip install -qr requirements.txt
 ```
+
 
 ## 【3】Download dataset - UAVDT
 
@@ -52,6 +53,7 @@ wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=dow
 unzip UAV-benchmark-MOTD_v1.0.zip
 rm -rf UAV-benchmark-MOTD_v1.0.zip
 ```
+
 
 ## 【3】Dataset preprocessing
 We then need to do 3 things before training YOLOv5 using UAVDT dataset:
