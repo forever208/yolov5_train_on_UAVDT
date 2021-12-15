@@ -38,6 +38,7 @@ pip install -qr requirements.txt
 ## 【3】Download dataset - UAVDT
 
 Download and unzip the dataset by command line is recommended:
+Since the author hosts the dataset in Google Drive, using wget to download dataset from Google Drive looks a bit ugly...
 ```
 cd ..
 wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1m8KA6oPIRK_Iwt9TYFquC87vBc_8wRVc' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1m8KA6oPIRK_Iwt9TYFquC87vBc_8wRVc" -O UAVDTM.zip && rm -rf /tmp/cookies.txt
