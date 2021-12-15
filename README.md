@@ -149,6 +149,7 @@ Now, you can train the network with UAVDT dataset.
 Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640` in a single GPU
 
 ```
+wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5m.pt
 python train.py --img 640 --batch 16 --epochs 5 --data UAVDT.yaml --weights yolov5m.pt 
 ```
 
