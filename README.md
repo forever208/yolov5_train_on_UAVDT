@@ -2,7 +2,7 @@
 
 This repo is based on [YOLOv5 (5.0)](https://github.com/ultralytics/yolov5/releases/tag/v5.0) and aims at training the network with dataset [UAVDT](https://sites.google.com/view/grli-uavdt/%E9%A6%96%E9%A1%B5).
 
-I found that the latest YOLOv5 version is not compatible with YOLOv5 (5.0), but do not worry, I will show you how to use the latest YOLOv5 below/
+I found that the latest YOLOv5 version is not compatible with YOLOv5 (5.0), but do not worry, I will show you how to use the latest YOLOv5 step by step.
 
 Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UAVDT.ipynb](https://colab.research.google.com/drive/1Gq3HCV6AlEbAkQ-S3_l4-PRHpnbyfisF?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
 
