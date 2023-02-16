@@ -69,7 +69,7 @@ We then need to do 3 things before training YOLOv5 using UAVDT dataset:
 
 
 
-### Copy all images into one folder
+### 1. Copy all images into one folder
 Using python script `yolov5_train_on_UAVDT/scripts/organise_image_folders.py` to do the job. 
 
 ```
@@ -84,7 +84,7 @@ you should now get the following folder structure where `dataset/images/all` con
 
 
 
-### Transform the label format
+### 2. Transform the label format
 
 Running the below script to match each image with a txt label file, move txts into `/dataset/labels/all` 
 ```
@@ -99,7 +99,7 @@ the label format is shown as follows, each line of txt is a ground truth bounfin
 
 
 
-### Split dataset into training and validation
+### 3. Split dataset into training and validation
 
 I use 35k images as the training dataset, 5k images as the validation set
 
@@ -132,9 +132,9 @@ cp -i -r ./dataset/labels/val/. ./dataset/labels/train/
 ```
 
 
-## 【4】Train with the latest YOLOv5
+## 【4】Train the latest YOLOv5 on UAVDT
 
-### git clone the latest YOLOv5 and replace the yaml files.
+### 1. git clone the latest YOLOv5 and replace the yaml files.
 ```
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
@@ -142,15 +142,15 @@ pip install -qr requirements.txt
 ```
 
 
-### replace the yaml files with UAVDT condifuration
+### 2. replace the yaml files with UAVDT condifuration
 ```
 cp ./yolov5_train_on_UAVDT/data/UAVDT.yaml ./yolov5/data
 cp ./yolov5_train_on_UAVDT/models/yolov5m.yaml ./yolov5/models/
-!rm -rf yolov5_train_on_UAVDT
+rm -rf yolov5_train_on_UAVDT
 ```
 
 
-### Train
+### 3. train
 Now, you can train the network with UAVDT dataset.
 
 Let's say, we use `YOLOv5m` as the pre-trained model to train `10 epochs` with the image size `640` in a single GPU
