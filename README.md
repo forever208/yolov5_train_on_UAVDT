@@ -142,7 +142,7 @@ pip install -qr requirements.txt
 ```
 
 
-### 2. replace the yaml files with UAVDT condifuration
+### 2. replace the yaml files with UAVDT configuration
 ```
 cp ./yolov5_train_on_UAVDT/data/UAVDT.yaml ./yolov5/data
 cp ./yolov5_train_on_UAVDT/models/yolov5m.yaml ./yolov5/models/
