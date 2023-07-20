@@ -6,6 +6,17 @@ I found that the latest YOLOv5 version is not compatible with YOLOv5 (5.0), but 
 
 Running the repo in Colab is recommended, copy the file [YOLOv5_train_on_UAVDT.ipynb](https://colab.research.google.com/drive/1Gq3HCV6AlEbAkQ-S3_l4-PRHpnbyfisF?usp=sharing), then run it on Colab. (remember to change the runtime type to GPU in Colab)
 
+This repo relates to our paper [SeeFar: Vehicle Speed Estimation and Flow Analysis from a Moving UAV](https://www.researchgate.net/publication/360607227_SeeFar_Vehicle_Speed_Estimation_and_Flow_Analysis_from_a_Moving_UAV). If you find it helpful, feel free to cite by
+```
+@inproceedings{ning2022seefar,
+  title={SeeFar: Vehicle speed estimation and flow analysis from a moving UAV},
+  author={Ning, Mang and Ma, Xiaoliang and Lu, Yao and Calderara, Simone and Cucchiara, Rita},
+  booktitle={International Conference on Image Analysis and Processing},
+  pages={278--289},
+  year={2022},
+  organization={Springer}
+}
+```
 
 
 ## 【1】Environment (Colab user can skip this step) 
